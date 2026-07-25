@@ -1,0 +1,219 @@
+{
+  "metadata": {
+    "app": "LifeOS",
+    "version": "1.0.0",
+    "schema": 1,
+    "lastUpdate": "2026-07-25"
+  },
+
+  "profile": {
+    "name": "Jhon",
+    "lastname": "Chalarca Ramírez",
+    "country": "Colombia",
+    "city": "Roldanillo",
+    "birthDate": "",
+    "height": 171,
+    "weight": 95,
+    "targetWeight": 85,
+    "goal": "Convertirme en AI Engineer",
+    "profession": "Programador"
+  },
+
+  "finance": {
+    "currency": "COP",
+    "available": 0,
+    "monthlyIncome": 0,
+    "monthlyExpenses": 0,
+    "savings": 0,
+    "debts": [],
+    "subscriptions": [
+      {
+        "name": "YouTube Premium",
+        "price": 10000,
+        "day": 8
+      }
+    ]
+  },
+
+  "nutrition": {
+
+    "goals": {
+      "calories": 2300,
+      "protein": 180,
+      "carbs": 220,
+      "fat": 70
+    },
+
+    "todayProtein": 0,
+
+    "foods": [
+
+      {
+        "id": 1,
+        "name": "Pechuga de pollo",
+        "protein": 31,
+        "carbs": 0,
+        "fat": 4,
+        "calories": 165,
+        "unit": "100 g"
+      },
+
+      {
+        "id": 2,
+        "name": "Arroz",
+        "protein": 2.7,
+        "carbs": 28,
+        "fat": 0.3,
+        "calories": 130,
+        "unit": "100 g"
+      }
+
+    ],
+
+    "meals": [],
+
+    "history": []
+
+  },
+
+  "training": {
+
+    "today": "Descanso",
+
+    "settings": {
+
+      "goal": "Bajar grasa",
+
+      "days": 4
+
+    },
+
+    "exercises": [
+
+      {
+        "id": 1,
+        "name": "Flexiones",
+        "type": "Pecho"
+      },
+
+      {
+        "id": 2,
+        "name": "Sentadillas",
+        "type": "Pierna"
+      }
+
+    ],
+
+    "routines": [
+
+      {
+        "id": 1,
+        "name": "Rutina Casa",
+        "days": [
+          "Lunes",
+          "Miércoles",
+          "Viernes"
+        ]
+      }
+
+    ],
+
+    "history": []
+
+  },
+
+  "shopping": [
+
+    {
+      "id": 1,
+      "name": "Huevos",
+      "quantity": "30"
+    }
+
+  ],
+
+  "habits": [
+
+    {
+      "id": 1,
+      "name": "Tomar agua",
+      "completed": false
+    },
+
+    {
+      "id": 2,
+      "name": "Leer",
+      "completed": false
+    }
+
+  ],
+
+  "goals": [
+
+    {
+      "id": 1,
+      "title": "Comprar Gixxer 250",
+      "completed": false
+    },
+
+    {
+      "id": 2,
+      "title": "Viajar a Alemania",
+      "completed": false
+    }
+
+  ],
+
+  "schedule": {
+
+    "monday": "",
+
+    "tuesday": "",
+
+    "wednesday": "",
+
+    "thursday": "",
+
+    "friday": "",
+
+    "saturday": "",
+
+    "sunday": ""
+
+  },
+
+  "skincare": {
+
+    "steps": []
+
+  },
+
+  "hair": {
+
+    "steps": []
+
+  },
+
+  "supplements": [],
+
+  "travel": [],
+
+  "settings": {
+
+    "darkMode": true,
+
+    "language": "es"
+
+  },
+
+  "developer": {
+
+    "developerMode": true,
+
+    "autoSave": true,
+
+    "lastBackup": ""
+
+  }
+
+}

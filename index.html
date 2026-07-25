@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>LifeOS V1</title>
+
+    <style>
+      /***************************************************
+*
+* LIFEOS V1
+* Todo el CSS vive aquí.
+*
+***************************************************/
+
+      :root {
+        --primary: #4f46e5;
+        --secondary: #6366f1;
+        --background: #111827;
+        --surface: #1f2937;
+        --card: #374151;
+        --text: #f9fafb;
+        --subtitle: #9ca3af;
+        --success: #22c55e;
+        --danger: #ef4444;
+        --warning: #f59e0b;
+        --radius: 16px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+        font-family: Inter, Roboto, Arial, sans-serif;
+      }
+
+      body {
+        background: var(--background);
+
+        color: var(--text);
+
+        padding-bottom: 90px;
+      }
+
+      header {
+        position: sticky;
+
+        top: 0;
+
+        background: var(--surface);
+
+        padding: 18px;
+
+        font-size: 22px;
+
+        font-weight: bold;
+
+        z-index: 100;
+
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      main {
+        padding: 16px;
+      }
+
+      .card {
+        background: var(--card);
+
+        border-radius: var(--radius);
+
+        padding: 16px;
+
+        margin-bottom: 16px;
+      }
+
+      .card h2 {
+        margin-bottom: 10px;
+
+        font-size: 18px;
+      }
+
+      .value {
+        font-size: 28px;
+
+        font-weight: bold;
+      }
+
+      .subtitle {
+        color: var(--subtitle);
+
+        font-size: 14px;
+      }
+
+      .grid {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 12px;
+      }
+
+      button {
+        background: var(--primary);
+
+        border: none;
+
+        padding: 12px;
+
+        border-radius: 12px;
+
+        color: white;
+
+        cursor: pointer;
+      }
+
+      button:hover {
+        opacity: 0.9;
+      }
+
+      .bottom-nav {
+        position: fixed;
+
+        bottom: 0;
+
+        left: 0;
+
+        right: 0;
+
+        height: 70px;
+
+        background: var(--surface);
+
+        display: flex;
+
+        justify-content: space-around;
+
+        align-items: center;
+
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.35);
+      }
+
+      .nav-item {
+        cursor: pointer;
+
+        text-align: center;
+
+        font-size: 13px;
+
+        color: var(--subtitle);
+      }
+
+      .nav-item.active {
+        color: white;
+
+        font-weight: bold;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>LifeOS V1</header>
+
+    <main>
+      <section id="dashboard">
+        <div class="card">
+          <h2>👋 Bienvenido</h2>
+
+          <div id="username" class="value">Jhon</div>
+
+          <div class="subtitle">Tu sistema operativo personal</div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h2>⚖ Peso</h2>
+
+            <div id="weight" class="value">100 kg</div>
+          </div>
+
+          <div class="card">
+            <h2>💰 Dinero</h2>
+
+            <div id="money" class="value">$0</div>
+          </div>
+
+          <div class="card">
+            <h2>🥩 Proteína</h2>
+
+            <div id="protein" class="value">0 g</div>
+          </div>
+
+          <div class="card">
+            <h2>🔥 Entreno</h2>
+
+            <div id="workout" class="value">Hoy</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="profile" class="hidden">
+        <div class="card">
+          <h2>Perfil</h2>
+
+          <p>En construcción...</p>
+        </div>
+      </section>
+
+      <section id="nutrition" class="hidden">
+        <div class="card">
+          <h2>🍗 Alimentos</h2>
+
+          <div style="display: flex; gap: 8px; margin-top: 15px">
+            <input
+              id="foodName"
+              placeholder="Nombre"
+              style="flex: 2; padding: 10px; border-radius: 10px; border: none"
+            />
+
+            <input
+              id="foodProtein"
+              type="number"
+              placeholder="Prot."
+              style="
+                width: 70px;
+                padding: 10px;
+                border-radius: 10px;
+                border: none;
+              "
+            />
+
+            <button onclick="addFood()">Agregar</button>
+          </div>
+        </div>
+
+        <div id="foodsContainer"></div>
+      </section>
+
+      <section id="developer" class="hidden">
+        <div class="card">
+          <h2>Developer Mode</h2>
+
+          <button onclick="openJsonEditor()">Editar JSON</button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <div class="nav-item active" onclick="showPage('dashboard', this)">
+        🏠
+
+        <br />
+
+        Inicio
+      </div>
+
+      <div class="nav-item" onclick="showPage('nutrition', this)">
+        🥗
+
+        <br />
+
+        Salud
+      </div>
+
+      <div class="nav-item" onclick="showPage('profile', this)">
+        👤
+
+        <br />
+
+        Perfil
+      </div>
+
+      <div class="nav-item" onclick="showPage('developer', this)">
+        ⚙
+
+        <br />
+
+        Dev
+      </div>
+    </nav>
+
+    <script>
+      /***************************************************
+       *
+       * LIFEOS
+       *
+       ***************************************************/
+
+      let lifeProfile = {};
+
+      function showPage(page, element) {
+        document
+          .querySelectorAll("main section")
+          .forEach((e) => e.classList.add("hidden"));
+
+        document.getElementById(page).classList.remove("hidden");
+
+        document
+          .querySelectorAll(".nav-item")
+          .forEach((e) => e.classList.remove("active"));
+
+        element.classList.add("active");
+      }
+
+      function openJsonEditor() {
+        alert("Editor JSON llegará en la siguiente parte.");
+      }
+
+      function renderFoods() {
+        const container = document.getElementById("foodsContainer");
+
+        container.innerHTML = "";
+
+        lifeProfile.nutrition.foods.forEach((food) => {
+          container.innerHTML += `
+
+<div class="card">
+
+<h2>${food.name}</h2>
+
+<p>
+
+🥩 ${food.protein} g proteína
+
+</p>
+
+<p>
+
+🍞 ${food.carbs} g carbos
+
+</p>
+
+<p>
+
+🥑 ${food.fat} g grasa
+
+</p>
+
+<p>
+
+🔥 ${food.calories} kcal
+
+</p>
+
+<div style="margin-top:10px;display:flex;gap:8px;">
+
+<button
+onclick="deleteFood(${food.id})">
+
+Eliminar
+
+</button>
+
+</div>
+
+</div>
+
+`;
+        });
+      }
+
+      function addFood(){
+
+const name =
+document
+.getElementById("foodName")
+.value;
+
+const protein =
+Number(
+document
+.getElementById("foodProtein")
+.value);
+
+if(name=="") return;
+
+lifeProfile.nutrition.foods.push({
+
+id:Date.now(),
+
+name,
+
+protein,
+
+carbs:0,
+
+fat:0,
+
+calories:0,
+
+unit:"100 g"
+
+});
+
+renderFoods();
+
+document
+.getElementById("foodName")
+.value="";
+
+document
+.getElementById("foodProtein")
+.value="";
+
+}
+function deleteFood(id){
+
+lifeProfile.nutrition.foods =
+lifeProfile
+.nutrition
+.foods
+.filter(f=>f.id!=id);
+
+renderFoods();
+
+}
+
+      async function loadProfile() {
+        try {
+          const response = await fetch("life_profile.json");
+
+          lifeProfile = await response.json();
+
+          renderDashboard();
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function renderDashboard() {
+        document.getElementById("username").innerText =
+          lifeProfile.profile.name;
+
+        document.getElementById("weight").innerText =
+          lifeProfile.profile.weight + " kg";
+
+        document.getElementById("money").innerText =
+          "$" + lifeProfile.finance.available;
+
+        document.getElementById("protein").innerText =
+          lifeProfile.nutrition.todayProtein + " g";
+
+        document.getElementById("workout").innerText =
+          lifeProfile.training.today;
+        renderFoods();
+      }
+      
+
+      loadProfile();
+    </script>
+  </body>
+</html>
